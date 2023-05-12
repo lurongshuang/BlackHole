@@ -46,6 +46,8 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../Services/round_utils.dart';
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -247,6 +249,7 @@ class _HomePageState extends State<HomePage> {
   final ScrollController _scrollController = ScrollController();
   final PageController _pageController = PageController();
 
+
   @override
   void initState() {
     super.initState();
@@ -399,8 +402,8 @@ class _HomePageState extends State<HomePage> {
                         contentPadding:
                             const EdgeInsets.symmetric(horizontal: 20.0),
                         leading: Icon(
-                          Icons
-                              .settings_rounded, // miscellaneous_services_rounded,
+                          Icons.settings_rounded,
+                          // miscellaneous_services_rounded,
                           color: Theme.of(context).iconTheme.color,
                         ),
                         onTap: () {

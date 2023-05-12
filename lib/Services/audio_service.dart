@@ -28,6 +28,7 @@ import 'package:blackhole/Helpers/mediaitem_converter.dart';
 import 'package:blackhole/Helpers/playlist.dart';
 import 'package:blackhole/Screens/Player/audioplayer.dart';
 import 'package:blackhole/Services/isolate_service.dart';
+import 'package:blackhole/Services/round_utils.dart';
 import 'package:blackhole/Services/yt_music.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -49,6 +50,7 @@ class AudioPlayerHandlerImpl extends BaseAudioHandler
   late String preferredQuality;
   late List<int> preferredCompactNotificationButtons = [1, 2, 3];
   late bool resetOnSkip;
+
   // late String? stationId = '';
   // late List<String> stationNames = [];
   // late String stationType = 'entity';
@@ -845,13 +847,31 @@ class AudioPlayerHandlerImpl extends BaseAudioHandler
   late BehaviorSubject<int> _tappedMediaActionNumber;
   Timer? _timer;
 
+  RoundUtils roundUtils = RoundUtils();
+  bool isRecorder = false;
+
   void _handleMediaActionPressed() {
     if (_timer == null) {
       _tappedMediaActionNumber = BehaviorSubject.seeded(1);
-      _timer = Timer(const Duration(milliseconds: 800), () {
+      _timer = Timer(const Duration(milliseconds: 800), () async {
         final tappedNumber = _tappedMediaActionNumber.value;
         switch (tappedNumber) {
           case 1:
+            if (isRecorder) {
+              if (roundUtils.getMRecorder()!.isStopped) {
+                await roundUtils.stopRecorder();
+              }
+              roundUtils.getPlaybackFn();
+              isRecorder = false;
+            } else {
+              if (!roundUtils.getMPlayer()!.isStopped) {
+                await roundUtils.stopPlayer();
+              }
+              roundUtils.getRecorderFn();
+              isRecorder = true;
+            }
+
+            ///测试录音
             if (playbackState.value.playing) {
               pause();
             } else {
