@@ -14,6 +14,7 @@
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
 		AFC43308220D98E30E72427B /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27DCE117663383D3B4FDA55C /* Pods_Runner.framework */; };
+		EF7E1A1F2A0E3A24004C5F41 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EF7E1A1E2A0E3A24004C5F41 /* libc++.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,6 +48,7 @@
 		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE8343777611E34BDDF96D29 /* Pods-Runner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.debug.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"; sourceTree = "<group>"; };
 		D683E5E20F8F93886F7875FE /* Pods-Runner.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.profile.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig"; sourceTree = "<group>"; };
+		EF7E1A1E2A0E3A24004C5F41 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF7E1A1F2A0E3A24004C5F41 /* libc++.tbd in Frameworks */,
 				AFC43308220D98E30E72427B /* Pods_Runner.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -119,6 +122,7 @@
 		A7D108627A99ED21F94CED8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EF7E1A1E2A0E3A24004C5F41 /* libc++.tbd */,
 				27DCE117663383D3B4FDA55C /* Pods_Runner.framework */,
 			);
 			name = Frameworks;
